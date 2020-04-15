@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /report_content
+spring:
+  profiles:
+    active: pro
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.52.120.217/hz?characterEncoding=utf-8
+    username: root
+    password: GUO;chuang.123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: 192.168.1.152:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: guocha8
+      auto-offset-reset: earliest
+      auto-commit-interval: 100
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
