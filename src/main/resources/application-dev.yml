@@ -22,7 +22,7 @@ spring:
       ddl-auto: update
     show-sql: true
   kafka:
-    bootstrap-servers: 192.168.1.152:9092
+    bootstrap-servers: 192.168.1.152:9092,192.168.1.150:9092
     producer:
       retries: 0
       batch-size: 16384
@@ -30,7 +30,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-      group-id: guocha33
+      group-id: guocha34
       auto-offset-reset: earliest
 #      auto-offset-reset: latest
       auto-commit-interval: 100

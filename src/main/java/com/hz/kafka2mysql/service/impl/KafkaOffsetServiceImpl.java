@@ -12,8 +12,8 @@ public class KafkaOffsetServiceImpl  implements KafkaOffsetService {
     private KafkaOffsetRepository kafkaOffsetRepository;
 
     @Override
-    public KafkaOffset getKafkaOffsetByTopicAndAndGroupId(String topic,String groupId) {
-        KafkaOffset kafkaOffset = kafkaOffsetRepository.getKafkaOffsetByTopicAndAndGroupId(topic, groupId);
+    public KafkaOffset getKafkaOffsetByTopicAndAndGroupIdandAndPartition(String topic,String groupId, Integer partition) {
+        KafkaOffset kafkaOffset = kafkaOffsetRepository.getKafkaOffsetByTopicAndAndGroupIdandAndPartition(topic, groupId, partition);
         return kafkaOffset;
     }
 

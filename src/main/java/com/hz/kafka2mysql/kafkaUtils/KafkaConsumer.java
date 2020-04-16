@@ -54,9 +54,8 @@ public class KafkaConsumer {
                 reportContent.setLastUpdateTime(DateStrConersionDate(obj.get("lastUpdateTime")));
                 reportContentService.InsertReportContent(reportContent);
                 //插入数据之后记录偏移量
-                KafkaOffset kafkaOffset = kafkaOffsetService.getKafkaOffsetByTopicAndAndGroupId(record.topic(), groupId);
+                KafkaOffset kafkaOffset = kafkaOffsetService.getKafkaOffsetByTopicAndAndGroupIdandAndPartition(record.topic(), groupId, record.partition());
                 if (kafkaOffset != null ){
-                    kafkaOffset.setPartition(record.partition());
                     kafkaOffset.setOffset((int) record.offset());
                     kafkaOffsetService.updateKafkaOffset(kafkaOffset);
                 }else {
@@ -69,7 +68,6 @@ public class KafkaConsumer {
                 }
                 System.out.println("消费成功"+record.offset());
             }
-            record.partition();
         }
     }
 }

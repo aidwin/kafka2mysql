@@ -17,7 +17,6 @@ public class KafkaOffset implements Serializable {
 
     private String topic;
 
-
     private String groupId;
 
     @Column(name = "partitioned")

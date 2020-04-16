@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface KafkaOffsetRepository extends JpaRepository<KafkaOffset,Integer> {
 
-    KafkaOffset getKafkaOffsetByTopicAndAndGroupId(String topic, String groupId);
+    KafkaOffset getKafkaOffsetByTopicAndAndGroupIdandAndPartition(String topic, String groupId,Integer partition);
 }
